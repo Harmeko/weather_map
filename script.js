@@ -16,12 +16,7 @@
                 // transformer en degres Celsius
                 var data = response.data.list;
                 successCallback(data);
-                        // position: {lat: element.coord.lat, lng: element.coord.lon},
-                        // title: element.name,
-                        // icon: 'http://openweathermap.org/img/w/'+element.weather[0].icon+'.png'
             });
-                // console.log(data);
-            // return data;
         };
     })
     .controller('mainCtrl', function(weather, $scope) {
@@ -34,7 +29,8 @@
         }
 
         weather.getCitiesWeather(function (data) {
-            
+            console.log(data);
+
             var coordsObj = [];
 
             for (var key in data)
@@ -43,11 +39,17 @@
                     latitude: data[key].coord.lat,
                     longitude: data[key].coord.lon,
                     id: data[key].id,
+                    icon: 'http://openweathermap.org/img/w/'+data[key].weather[0].icon+'.png',
                 })
             }
             $scope.citiesData = coordsObj;
 
+
         });
+
+        $scope.redirect = function (mark) {
+            console.log(mark);
+        };
 
     })
 
