@@ -5,9 +5,16 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body ng-app="appMaps">
+
+
     <div id="map_canvas" ng-controller="mainCtrl">
-      <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
-  </div>
+      <ui-gmap-google-map center="map.center" zoom="map.zoom">
+
+          <ui-gmap-markers models="citiesData" coords="'self'">
+        </ui-gmap-marker>
+
+      </ui-gmap-google-map>
+    </div>
 
   <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyAxGnuKYSEQPSCMn4VecwJLvAfWyqDG9vQ'></script>
   <script src='node_modules/lodash/lodash.min.js'></script>
@@ -17,29 +24,3 @@
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>google maps</title>
-</head>
-<body ng-app="appMaps">
-
-<style type="text/css">
-    .angular-google-map-container { height: 400px; }
-</style>
-
-    <div ng-controller="mainCtrl">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-    </div>
-
-    <script src='node_modules/lodash/lodash.min.js'></script>
-    <script src='node_modules/angular/angular.min.js'></script>
-    <script src='node_modules/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
-    <script src='node_modules/angular-google-maps/dist/angular-google-maps.min.js'></script>
-    <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyAxGnuKYSEQPSCMn4VecwJLvAfWyqDG9vQ'></script>
-    <script type="text/javascript" src="script.js"></script>
-
-</body>
-</html> -->
